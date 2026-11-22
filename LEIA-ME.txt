@@ -1,0 +1,10 @@
+NINJA FINANCE 1.0.2
+
+Projeto desktop Electron do Ninja Finance. O nome, o logotipo, o ícone e a configuração do atualizador via GitHub Releases são preservados. Os dados ficam em %APPDATA%\NinjaFinance e não são removidos ao desinstalar.
+
+Para instalar dependências e iniciar: npm ci && npm start
+Para gerar o instalador Windows: npm run dist (artefato em release/).
+
+Persistência: o arquivo finance_data.json usa formato v3 e gravação atômica. A exclusão é persistida imediatamente. Arquivos v2 reconhecidos são migrados com cópia de segurança do JSON antigo. A restauração substitui as movimentações atuais, sem acrescentá-las às existentes.
+
+Esta é a versão-fonte 1.0.2. Não há instalador validado incluído neste repositório. Antes da publicação oficial, gere e teste o instalador numa instalação isolada e publique os artefatos do electron-builder (instalador, latest.yml e .blockmap) numa Release v1.0.2.

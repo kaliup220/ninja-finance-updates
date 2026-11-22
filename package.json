@@ -1,0 +1,62 @@
+{
+  "name": "ninja-finance-desktop",
+  "version": "1.0.2",
+  "description": "Ninja Finance desktop app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "34.5.8",
+    "electron-builder": "25.1.8"
+  },
+  "build": {
+    "appId": "br.ninjatech.ninjafinance",
+    "productName": "Ninja Finance",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "Ninja-Finance-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Ninja Finance",
+      "uninstallDisplayName": "Ninja Finance",
+      "deleteAppDataOnUninstall": false
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "kaliup220",
+        "repo": "ninja-finance-updates"
+      }
+    ]
+  },
+  "dependencies": {
+    "electron-updater": "^6.6.2"
+  },
+  "author": "Ninja Tech"
+}
